@@ -3,8 +3,8 @@
 Virtual Memory Lab.
 
 '''
-__author__ = 'CS 3280'
-__version__ = 'Fall 2020'
+__author__ = 'Alex DeCesare'
+__version__ = '05-November-2020'
 
 
 class VirtualMemory:
@@ -28,40 +28,40 @@ class VirtualMemory:
         '''
         Calculates the number of page frames.
         '''
-        return None
+        return self._ram_size_in_bytes / self._page_size_in_bytes
 
     def start_address_of_page(self, page_num):
         '''
         Calculates the address of a page.
         '''
-        return None
+        return page_num * self._page_size_in_bytes
 
     def start_address_of_page_frame(self, page_frame_num):
         '''
-        Calculates ...
+        Calculates the start address of a page frame
         '''
-        return None
+        return page_frame_num * self._page_size_in_bytes
 
     def page_for_address(self, address):
         '''
-        Calculates ...
+        Calculates the address of a page
         '''
-        return None
+        return address // self._page_size_in_bytes
 
     def page_offset_for_address(self, address):
         '''
-        Calculates ...
+        Calculates the page offset for an address
         '''
-        return None
+        return address % self._page_size_in_bytes
 
     def page_frame_offset_for_address(self, address):
         '''
-        Calculates ...
+        Calculates the page frame offset for an address
         '''
-        return None
+        return address % self._page_size_in_bytes
 
     def translate_virtual_address_to_physical_address(self, vmem_address, page_frame_num):
         '''
-        Calculates ...
+        Converts a virtual address to a physical address
         '''
-        return None
+        return self.page_offset_for_address(vmem_address) + self.start_address_of_page_frame(page_frame_num)
